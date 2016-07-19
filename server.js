@@ -15,15 +15,15 @@ app.use(express.static(__dirname + '/public'));
 // app.get('/', function(req,res){
 //   res.send('hello world from server.js')
 // });
-app.use(bodyParser.urlencoded({
-   extended: true
-}));
+//app.use(bodyParser.urlencoded({
+//   extended: true
+//}));
 app.use(bodyParser.json());
 
 app.get('/contactlist', function(req, res){
   console.log('Received GET request.');
   Contactlist.find(function(err,contactlist){
-    console.log(contactlist);
+
     res.json({contactlist});
   });
 });
