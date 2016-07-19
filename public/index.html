@@ -2,48 +2,53 @@
 
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+<!-- <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'> -->
+<link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+<link rel="stylesheet" href="./styles/normalize.css">
+<link rel="stylesheet" href="./styles/style.css">
 
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous"> -->
   <title>EquipFinder app</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 <body ng-app='equipApp'>
   <div class="container" ng-controller="mainCtrl">
     <h1>Find equipment!</h1>
     <table class='table'>
-      <thead>
+      <thead class='thead'>
         <tr>
-          <th>Staff</th>
-          <th>Equipment Stash</th>
-          <th>Contact</th>
-          <th>Office</th>
+          <th class="staff-table">Staff</th>
+          <th class="equipment-table">Equipment Stash</th>
+          <th class="contact-table">Contact</th>
+          <th class = "office-table">Office</th>
         </tr>
       </thead>
       <tbody>
 
         <tr ng-repeat='contact in contactlist'>
           <td>{{contact.name}}</td>
-          <td>{{contact.equipment}}</td>
+          <td class="equipment-table">{{contact.equipment}}</td>
           <td>{{contact.number}}</td>
           <td>{{contact.office}}</td>
         </tr>
         <tr>
-          <td> <input class="form-control" ng-model="contact.name"></td>
-          <td> <input class="form-control" ng-model="contact.equipment"></td>
-          <td> <input class="form-control" ng-model="contact.number"></td>
-          <td> <input class="form-control" ng-model="contact.office"></td>
+          <td> <input class="form-control" ng-model="contact.name" type="text" placeholder="New Staff: name"></td>
+          <td> <input class="equipment-table" class="form-control" ng-model="contact.equipment" placeholder="New staff equipment"></td>
+          <td> <input class="form-control" ng-model="contact.number" placeholder="phone"></td>
+          <td> <input class="form-control" ng-model="contact.office" placeholder="office loc"></td>
           <td><button class="btn btn-primary" ng-click="addContact()">Add Staff</button></td>
           <!-- <td><button class="btn btn-info" ng-click="update()">Update</button>&nbsp;&nbsp;<button class="btn btn-info" ng-click="deselect()">Clear</button></td> -->
         </tr>
       </tbody>
     </table>
 
-
   </div>
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script> -->
   <script src="../node_modules/angular/angular.js"></script>
+
   <script src='./controllers/main.js'></script>
   <script src='../database/main.js'></script>
 

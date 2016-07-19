@@ -1,18 +1,15 @@
 'use strict';
+
 var express=require('express');
 
 var app= express();
 var router = require('express').Router();
 
-
 var mongoose = require('mongoose');
 var Contactlist = require('./models/contactlist.js');
 require('./seed.js');
+require('./database.js');
 var bodyParser = require('body-parser');
-
-
-
-
 
 app.use(express.static(__dirname + '/public'));
 // app.get('/', function(req,res){
@@ -47,28 +44,4 @@ app.post('/contactlist', function (req, res) {
         console.log('server running on 3000');
       });
 
-
-
-  //dummy-data below deleted upon connecting to database
-  // var staff1= {
-  //   name: 'GretchenM',
-  //   equipment: 'the good AFOs',
-  //   number: '1-502-555-9087',
-  //   office: 'at large'
-  // };
-  // var staff2= {
-  //   name: 'NancyW',
-  //   equipment: 'endless paperclips',
-  //   number: '1-502-555-4920',
-  //   office: 'Bishop'
-  // };
-  // var staff3= {
-  //   name: 'Taylor',
-  //   equipment: 'TARDIS',
-  //   number: 'somewhere in spaceTime',
-  //   office: 'see equipment'
-  // };
-  // var contactlist = [staff1, staff2, staff3];
-  // res.json(contactlist);
-
-//to insert record in mongodb, example: db.contactlist.insert({name:'Thomas', equipment: 'scissors', number:'unlisted', office:'Sheph'})
+//to insert record via mongodb, example: db.contactlist.insert({name:'Thomas', equipment: 'scissors', number:'unlisted', office:'Sheph'})
