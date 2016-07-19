@@ -6,7 +6,7 @@ equipApp.controller('mainCtrl', ['$scope', '$http', function($scope, $http) {
     console.log("Hello World from main controller");
 
     $http.get('/contactlist').success(function(response){
-      console.log('I received the data I requested');
+      console.log('Received data from mainCtrl');
       $scope.contactlist = response;
     });
     $scope.addContact = function(){

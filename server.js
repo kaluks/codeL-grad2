@@ -35,7 +35,7 @@ app.post('/contactlist', function (req, res) {
     		number: req.body.number,
         office: req.body.office};
       Contactlist.create(contact,function(err,contact){
-        res.json({contact:contactlist});
+        res.json({contact:contact});
       });
       });
 
