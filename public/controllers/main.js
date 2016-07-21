@@ -8,13 +8,19 @@ equipApp.controller('mainCtrl', ['$scope', '$http', function($scope, $http) {
     $http.get('/contactlist').success(function(response){
       console.log('Receiving data from mainCtrl');
 
-      $scope.contactlist = response;
-      //var contactlist=$scope.contactlist ;
+      $scope.contactlist = response.contactlist;
     });
     $scope.addContact = function(){
       console.log('New Staff Added!');
       $http.post('/contactlist', $scope.contact);
     };
+
+    $scope.deleteContact = function (item) {
+    var index = $scope.contactlist.indexOf(item);
+    $scope.contactlist.splice(index, 1);
+    return $scope.removed = 'Contact successfully removed.';
+  };
+
 
 
 }]);
